@@ -1,0 +1,24 @@
+@mixin button-base {
+  padding: $padding-primary;
+  background-color: $button-background-color-primary;
+  color: $button-color-primary;
+  box-shadow: 5px 5px 5px $box-shadow-color-primary;
+  border-radius: $border-radius-primary;
+  transition: all 1s;
+  &:hover {
+    cursor: pointer;
+    box-shadow: 15px 15px 15px $background-color-primary;
+  }
+  &:active {
+    background-color: $button-background-color-active;
+  }
+}
+
+@mixin button-secondary {
+  font-size: $font-size-tertiary;
+  margin: $margin-primary;
+  padding: $padding-primary;
+  background-color: $button-background-color-primary;
+  color: $button-color-primary;
+  border-radius: $border-radius-primary;
+}
