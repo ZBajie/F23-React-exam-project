@@ -3,6 +3,14 @@
 React, typescript, vite, react-router-doom,
 Scss and redux will be used.
 
+## Yarn
+
+To setup project.
+
+git clone
+yarn install
+yarn run dev
+
 ## React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
