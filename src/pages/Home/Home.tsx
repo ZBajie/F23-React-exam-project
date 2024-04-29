@@ -1,5 +1,12 @@
+import SearchBook from "../../components/SearchBook/SearchBook"
+
 const Home = () => {
-  return <div>Home</div>
+  return (
+    <section className="home page">
+      <h1>Home</h1>
+      <SearchBook />
+    </section>
+  )
 }
 
 export default Home
