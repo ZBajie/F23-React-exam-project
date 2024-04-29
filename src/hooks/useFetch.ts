@@ -10,6 +10,8 @@ export function useFetch<T>(url: string) {
     const fetchData = async () => {
       try {
         setLoading(true)
+        setError(null)
+
         const result = await fetch(url)
         const resultData = (await result.json()) as T
         if (isMounted) {
