@@ -2,13 +2,13 @@ export type BookTitleType = {
   numFound: number
   start: number
   numFoundExact: boolean
-  docs: Doc[]
+  docs: BookDocType[]
   num_found: number
   q: string
   offset: number
 }
 
-export type Doc = {
+export type BookDocType = {
   author_alternative_name: string[]
   author_key: string[]
   author_name: string[]
