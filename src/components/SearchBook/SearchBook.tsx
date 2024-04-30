@@ -1,19 +1,6 @@
 import "./SearchBook.scss"
 import { useState } from "react"
-import { useFetch } from "../../hooks/useFetch"
-import { BookTitleType } from "../../type/BookTitleType"
 import BookList from "../BookList/BookList"
-
-// fetch book oid by id
-// https://openlibrary.org/api/books?bibkeys=OLID:OL123M&jscmd=data&format=json
-
-// https://openlibrary.org/works/OL14926019W.json
-
-// fetch author by oid
-// https://openlibrary.org/authors/OL26320A.json
-
-// fetch book by title
-// https://openlibrary.org/search.json?title=the+lord+of+the+rings&limit=10&offset=10
 
 const SearchBook = () => {
   const [offset, setOffset] = useState(0)
@@ -22,13 +9,29 @@ const SearchBook = () => {
 
   const handleSearch = () => {
     setOffset(0)
+
     setUrl(
-      `https://openlibrary.org/search.json?title=${searchWord}&limit=10&offset=${offset}`
+      `https://openlibrary.org/search.json?title=${searchWord}&limit=10&offset=${offset}&type=work`
     )
   }
-  const { data, error, loading } = useFetch<BookTitleType>(url)
 
-  console.log(data)
+  const handleNext = (resultNumber: number) => {
+    if (resultNumber > offset + 10) {
+      setOffset(offset + 10)
+      setUrl(
+        `https://openlibrary.org/search.json?title=${searchWord}&limit=10&offset=${offset}`
+      )
+    }
+  }
+  const handlePrev = () => {
+    if (offset > 0) {
+      setOffset(offset - 10)
+      setUrl(
+        `https://openlibrary.org/search.json?title=${searchWord}&limit=10&offset=${offset}`
+      )
+    }
+  }
+
   return (
     <section className="search-book">
       <div className="search-field">
@@ -42,7 +45,11 @@ const SearchBook = () => {
         </div>
         <button onClick={handleSearch}>Search</button>
       </div>
-      <article>{url.length > 0 && <BookList url={url} />}</article>
+      <article>
+        {url.length > 0 && (
+          <BookList url={url} handleNext={handleNext} handlePrev={handlePrev} />
+        )}
+      </article>
     </section>
   )
 }

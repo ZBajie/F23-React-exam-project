@@ -1,0 +1,20 @@
+@import "../../style/style.scss";
+
+.book-list {
+  width: fit-content;
+  margin: $margin-secondary;
+  padding: $padding-secondary;
+  h2 {
+    text-align: center;
+  }
+  .book-list-card {
+    margin: $margin-secondary;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    img {
+      width: 100px;
+      margin-right: $margin-secondary;
+    }
+  }
+}
