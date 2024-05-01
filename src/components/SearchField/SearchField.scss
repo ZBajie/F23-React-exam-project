@@ -1,0 +1,23 @@
+@import "../../style/style.scss";
+.search-field {
+  width: fit-content;
+  background-color: $background-color-secondary;
+  border-radius: $border-radius-primary;
+  box-shadow: 5px 5px 5px $box-shadow-color-primary;
+  display: flex;
+  flex-direction: row;
+
+  div {
+    margin: $margin-primary;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    label {
+      margin-bottom: $margin-primary;
+    }
+    input {
+      width: 150px;
+      padding: $padding-primary;
+    }
+  }
+}
