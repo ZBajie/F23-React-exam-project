@@ -1,7 +1,9 @@
 import "./BookList.scss"
+import nocover from "../../assets/nocover.png"
 import { useState } from "react"
 import { useFetch } from "../../hooks/useFetch"
 import { BookTitleType, BookDocType } from "../../type/BookTitleType"
+import BookChosed from "./BookChosed/BookChosed"
 
 type BookProps = {
   url: string
@@ -26,12 +28,17 @@ const BookList: React.FC<BookProps> = ({ url, handleNext, handlePrev }) => {
               key={item.key}
               onClick={() => setBookData(item)}
             >
-              <img
-                src={`https://covers.openlibrary.org/b/olid/${item.cover_edition_key}-M.jpg`}
-                alt=""
-              />
+              {item.cover_i ? (
+                <img
+                  src={`https://covers.openlibrary.org/b/id/${item.cover_i}-M.jpg`}
+                  alt=""
+                />
+              ) : (
+                <img src={nocover} alt="" />
+              )}
+
               <div>
-                <p>{item.title}</p>
+                <h3>{item.title}</h3>
                 <p>{item.author_name}</p>
                 <p>Editions: {item.edition_count}</p>
               </div>
@@ -47,26 +54,8 @@ const BookList: React.FC<BookProps> = ({ url, handleNext, handlePrev }) => {
           </button>
         </div>
       )}
-      {bookData && (
-        <div>
-          <h3>{bookData.title}</h3>
-          <p>{bookData.author_name}</p>
-          <p>Editions: {bookData.edition_count}</p>
-          <p>published year: {bookData.first_publish_year}</p>
-          <p>Pages: {bookData.number_of_pages_median}</p>
-          <p>First sentence: {bookData.first_sentence}</p>
-          <h3>Key: {bookData.key}</h3>
-          <h3>
-            subject: {bookData.subject[0]} {bookData.subject[1]}
-            {bookData.subject[2]} {bookData.subject[3]}
-          </h3>
 
-          <img
-            src={`https://covers.openlibrary.org/b/olid/${bookData.cover_edition_key}-M.jpg`}
-            alt=""
-          />
-        </div>
-      )}
+      <BookChosed bookData={bookData} />
     </article>
   )
 }

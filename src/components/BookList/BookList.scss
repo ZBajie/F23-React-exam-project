@@ -13,8 +13,12 @@
     flex-direction: row;
     align-items: center;
     img {
-      width: 100px;
+      width: 50px;
       margin-right: $margin-secondary;
+      transition: all 1s;
+      &:hover {
+        width: 300px;
+      }
     }
   }
 }
