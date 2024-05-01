@@ -1,5 +1,6 @@
-import { useDispatch } from "react-redux"
 import "./SearchField.scss"
+import { useDispatch } from "react-redux"
+import { useNavigate } from "react-router-dom"
 import { useRef } from "react"
 import { AppDispatch } from "../../state/store"
 import {
@@ -12,6 +13,7 @@ type SearchFieldProps = {
 }
 
 const SearchField: React.FC<SearchFieldProps> = ({ label }) => {
+  const navigate = useNavigate()
   const dispatch = useDispatch<AppDispatch>()
   const searchWord = useRef<HTMLInputElement>(null)
   return (
@@ -24,6 +26,7 @@ const SearchField: React.FC<SearchFieldProps> = ({ label }) => {
         onClick={() => {
           dispatch(setSearchWord(searchWord.current?.value || ""))
           dispatch(setSearchFor("title"))
+          navigate("/searchbook")
         }}
       >
         Search
