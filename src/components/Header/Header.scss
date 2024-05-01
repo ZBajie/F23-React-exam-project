@@ -1,0 +1,15 @@
+@import "../../style/style.scss";
+
+.header-main {
+  padding: $padding-secondary;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  img {
+    height: 100px;
+    &:hover {
+      height: 200px;
+    }
+  }
+}
