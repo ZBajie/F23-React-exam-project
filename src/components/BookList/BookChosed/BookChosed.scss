@@ -1,0 +1,46 @@
+@import "../../../style/style.scss";
+.book-chosed-card {
+  background-color: $background-color-secondary;
+  margin: $margin-secondary;
+  padding: $padding-secondary;
+  border: 5px double $border-color-primary;
+  border-radius: $border-radius-primary;
+  box-shadow: 5px 5px 5px $box-shadow-color-secondary;
+
+  h2 {
+    padding: $padding-secondary;
+    text-align: center;
+  }
+
+  .img-info {
+    padding: $padding-secondary;
+    display: flex;
+    flex-direction: row;
+
+    img {
+      width: 300px;
+      margin-right: $margin-secondary;
+      transition: all 1s;
+
+      &:hover {
+        width: 400px;
+      }
+    }
+    .short-info {
+      display: flex;
+      flex-direction: column;
+      h3 {
+        margin-bottom: $margin-secondary;
+      }
+    }
+  }
+  .first-sentence,
+  .description {
+    margin: $margin-secondary;
+  }
+  footer {
+    padding: $padding-secondary;
+    display: flex;
+    justify-content: end;
+  }
+}

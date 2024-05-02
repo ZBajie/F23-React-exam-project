@@ -12,9 +12,8 @@ type BookProps = {
 }
 const BookList: React.FC<BookProps> = ({ url, handleNext, handlePrev }) => {
   const { data, error, loading } = useFetch<BookTitleType>(url)
-  console.log(data)
-
   const [bookData, setBookData] = useState<BookDocType | null>(null)
+  const [showBookInfo, setShowBookInfo] = useState(false)
   return (
     <article className="book-list">
       {loading && <p>Loading...</p>}
@@ -26,7 +25,10 @@ const BookList: React.FC<BookProps> = ({ url, handleNext, handlePrev }) => {
             <div
               className="book-list-card"
               key={item.key}
-              onClick={() => setBookData(item)}
+              onClick={() => {
+                setShowBookInfo(true)
+                setBookData(item)
+              }}
             >
               {item.cover_i ? (
                 <img
@@ -53,6 +55,13 @@ const BookList: React.FC<BookProps> = ({ url, handleNext, handlePrev }) => {
             >
               Next
             </button>
+          </div>
+        </div>
+      )}
+      {bookData && showBookInfo && (
+        <div className="modal-book-info">
+          <div className="modal-book-info-overlay">
+            <BookChosed bookData={bookData} setShowBookInfo={setShowBookInfo} />
           </div>
         </div>
       )}
