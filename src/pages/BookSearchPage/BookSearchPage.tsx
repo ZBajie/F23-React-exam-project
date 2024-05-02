@@ -1,3 +1,5 @@
+import "./BookSearchPage.scss"
+
 import { useState } from "react"
 import BookList from "../../components/BookList/BookList"
 import { useSelector } from "react-redux"
