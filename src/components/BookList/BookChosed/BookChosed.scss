@@ -6,6 +6,8 @@
   border: 5px double $border-color-primary;
   border-radius: $border-radius-primary;
   box-shadow: 5px 5px 5px $box-shadow-color-secondary;
+  max-height: 90vh;
+  overflow-y: auto;
 
   h2 {
     padding: $padding-secondary;
@@ -18,7 +20,7 @@
     flex-direction: row;
 
     img {
-      width: 300px;
+      width: 150px;
       margin-right: $margin-secondary;
       transition: all 1s;
 
