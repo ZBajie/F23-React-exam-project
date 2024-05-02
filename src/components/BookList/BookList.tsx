@@ -44,20 +44,21 @@ const BookList: React.FC<BookProps> = ({ url, handleNext, handlePrev }) => {
               </div>
             </div>
           ))}
-          <button onClick={handlePrev}>Prev</button>
-          <button
-            onClick={() => {
-              handleNext(data.numFound)
-            }}
-          >
-            Next
-          </button>
+          <div className="pagination-buttons">
+            <button onClick={handlePrev}>Prev</button>
+            <button
+              onClick={() => {
+                handleNext(data.numFound)
+              }}
+            >
+              Next
+            </button>
+          </div>
         </div>
       )}
-
-      <BookChosed bookData={bookData} />
     </article>
   )
 }
+// <BookChosed bookData={bookData} />
 
 export default BookList

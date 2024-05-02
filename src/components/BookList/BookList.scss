@@ -4,14 +4,19 @@
   width: fit-content;
   margin: $margin-secondary;
   padding: $padding-secondary;
+  background-color: $background-color-secondary;
+  border-radius: $border-radius-primary;
+  box-shadow: 5px 5px 5px $box-shadow-color-primary;
   h2 {
     text-align: center;
   }
   .book-list-card {
     margin: $margin-secondary;
+    padding: $padding-primary;
     display: flex;
     flex-direction: row;
     align-items: center;
+    box-shadow: 5px 5px 5px $box-shadow-color-primary;
     img {
       width: 50px;
       margin-right: $margin-secondary;
@@ -20,5 +25,9 @@
         width: 300px;
       }
     }
+  }
+  .pagination-buttons {
+    display: flex;
+    justify-content: space-around;
   }
 }
