@@ -7,6 +7,7 @@
   background-color: $background-color-secondary;
   border-radius: $border-radius-primary;
   box-shadow: 5px 5px 5px $box-shadow-color-primary;
+
   h2 {
     text-align: center;
   }
@@ -17,6 +18,8 @@
     flex-direction: row;
     align-items: center;
     box-shadow: 5px 5px 5px $box-shadow-color-primary;
+    transition: all 1s;
+
     img {
       width: 50px;
       margin-right: $margin-secondary;
@@ -24,6 +27,14 @@
       &:hover {
         width: 300px;
       }
+    }
+    &:hover {
+      cursor: pointer;
+      box-shadow: 15px 15px 15px $box-shadow-color-tertiary;
+    }
+    &:active {
+      background-color: $background-color-tertiary;
+      box-shadow: 5px 5px 5px $box-shadow-color-primary;
     }
   }
   .pagination-buttons {
