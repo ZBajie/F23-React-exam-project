@@ -23,7 +23,10 @@ const BookChosed: React.FC<BookProps> = ({ bookData, setShowBookInfo }) => {
         title: bookData?.title || "",
         author: bookData?.author_name || "",
         description: data?.description || "",
+        first_sentence: bookData?.first_sentence || "",
         pages: bookData?.number_of_pages_median || 0,
+        first_publish_year: bookData?.first_publish_year || 0,
+        editions: bookData?.edition_count || 0,
         genre: bookData?.subject[0] || "",
         key: bookData?.key || "",
         imgUrl:
@@ -45,21 +48,23 @@ const BookChosed: React.FC<BookProps> = ({ bookData, setShowBookInfo }) => {
         <>
           <h2>{bookData.title}</h2>
           <div className="img-info">
-            {bookData.cover_edition_key ? (
-              <img
-                src={`https://covers.openlibrary.org/b/olid/${bookData?.cover_edition_key}-M.jpg`}
-                alt=""
-              />
-            ) : (
-              <img src={nocover} alt="" />
-            )}
+            <div className="book-cover">
+              {bookData.cover_edition_key ? (
+                <img
+                  src={`https://covers.openlibrary.org/b/olid/${bookData?.cover_edition_key}-M.jpg`}
+                  alt="book cover"
+                  className="book-cover"
+                />
+              ) : (
+                <img src={nocover} alt="book cover" className="book-cover" />
+              )}
+            </div>
 
             <div className="short-info">
               <h3>{bookData.author_name}</h3>
               <p>published year: {bookData.first_publish_year}</p>
               <p>Pages: {bookData.number_of_pages_median}</p>
               <p>Editions: {bookData.edition_count}</p>
-              <p>{bookData.person}</p>
               {bookData.subject && (
                 <>
                   <p>

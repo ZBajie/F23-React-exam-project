@@ -1,9 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit"
-type SavedBooksType = {
+export type SavedBooksType = {
   title: string
   author: string
+  first_sentence: string
   description: string
   pages: number
+  first_publish_year: number
+  editions: number
   genre: string
   key: string
   imgUrl: string
