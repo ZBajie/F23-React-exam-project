@@ -8,6 +8,7 @@
   justify-content: space-between;
   img {
     height: 100px;
+    transition: all 1s;
     &:hover {
       height: 200px;
     }
