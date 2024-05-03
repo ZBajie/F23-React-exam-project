@@ -3,6 +3,10 @@
 React, typescript, vite, react-router-doom,
 Scss and redux will be used.
 
+An app for searching after books and get information about the book.
+
+[open library](https://openlibrary.org/developers) api will be used.
+
 ## Yarn
 
 To setup project.

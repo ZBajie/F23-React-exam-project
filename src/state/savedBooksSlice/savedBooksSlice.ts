@@ -9,7 +9,7 @@ type SavedBooksType = {
   imgUrl: string
   favorite: boolean
   readed: boolean
-  rate: number
+  rate: number | null
   readerComment: string
 }
 
