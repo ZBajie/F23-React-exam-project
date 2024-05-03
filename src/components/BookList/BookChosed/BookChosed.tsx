@@ -3,14 +3,39 @@ import "./BookChosed.scss"
 import { useFetch } from "../../../hooks/useFetch"
 import { BookDocType } from "../../../type/BookTitleType"
 import { BookChosedType } from "../../../type/BookChosedType"
+import { useDispatch } from "react-redux"
+import { AppDispatch } from "../../../state/store"
+import { addBook } from "../../../state/savedBooksSlice/savedBooksSlice"
+import nocover from "../../../assets/nocover.png"
 type BookProps = {
   bookData: BookDocType | null
   setShowBookInfo: (value: boolean) => void
 }
 const BookChosed: React.FC<BookProps> = ({ bookData, setShowBookInfo }) => {
+  const dispatch = useDispatch<AppDispatch>()
   const bookUrl = `https://openlibrary.org${bookData?.key}.json`
 
   const { data, error, loading } = useFetch<BookChosedType>(bookUrl)
+
+  const handleOnClickSave = () => {
+    dispatch(
+      addBook({
+        title: bookData?.title || "",
+        author: bookData?.author_name || "",
+        description: data?.description || "",
+        pages: bookData?.number_of_pages_median || 0,
+        genre: bookData?.subject[0] || "",
+        key: bookData?.key || "",
+        imgUrl:
+          `https://covers.openlibrary.org/b/olid/${bookData?.cover_edition_key}-M.jpg` ||
+          "",
+        favorite: false,
+        readed: false,
+        rate: null,
+        readerComment: "",
+      })
+    )
+  }
 
   return (
     <div className="book-chosed-card">
@@ -20,10 +45,15 @@ const BookChosed: React.FC<BookProps> = ({ bookData, setShowBookInfo }) => {
         <>
           <h2>{bookData.title}</h2>
           <div className="img-info">
-            <img
-              src={`https://covers.openlibrary.org/b/olid/${bookData.cover_edition_key}-M.jpg`}
-              alt="Cover image"
-            />
+            {bookData.cover_edition_key ? (
+              <img
+                src={`https://covers.openlibrary.org/b/olid/${bookData?.cover_edition_key}-M.jpg`}
+                alt=""
+              />
+            ) : (
+              <img src={nocover} alt="" />
+            )}
+
             <div className="short-info">
               <h3>{bookData.author_name}</h3>
               <p>published year: {bookData.first_publish_year}</p>
@@ -65,6 +95,7 @@ const BookChosed: React.FC<BookProps> = ({ bookData, setShowBookInfo }) => {
         </>
       )}
       <footer>
+        <button onClick={handleOnClickSave}>Save</button>
         <button onClick={() => setShowBookInfo(false)}>Close</button>
       </footer>
     </div>

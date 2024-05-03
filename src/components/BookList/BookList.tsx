@@ -68,6 +68,5 @@ const BookList: React.FC<BookProps> = ({ url, handleNext, handlePrev }) => {
     </article>
   )
 }
-// <BookChosed bookData={bookData} />
 
 export default BookList
