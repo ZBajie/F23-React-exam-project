@@ -37,6 +37,9 @@
       background-color: $background-color-tertiary;
       box-shadow: 5px 5px 5px $box-shadow-color-primary;
     }
+    .favorite-star {
+      color: $color-quaternary;
+    }
   }
   .modal-book-saved-info {
     position: fixed;

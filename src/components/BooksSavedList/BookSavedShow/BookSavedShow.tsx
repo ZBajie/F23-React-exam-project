@@ -1,6 +1,7 @@
 import "./BookSavedShow.scss"
-import React from "react"
+import React, { useState } from "react"
 import { SavedBooksType } from "../../../state/savedBooksSlice/savedBooksSlice"
+import BookSavedEdit from "../BookSavedEdit/BookSavedEdit"
 type BookSavedShowProps = {
   bookSavedData: SavedBooksType
   setShowBookSavedInfo: (value: boolean) => void
@@ -10,11 +11,21 @@ const BookSavedShow: React.FC<BookSavedShowProps> = ({
   bookSavedData,
   setShowBookSavedInfo,
 }) => {
+  const [showBookSavedEdit, setShowBookSavedEdit] = useState(false)
+  console.log(bookSavedData)
   return (
     <div className="book-saved-show">
       {bookSavedData && (
         <>
-          <h2>{bookSavedData.title}</h2>
+          {bookSavedData.favorite === true ? (
+            <h2>
+              <span className="favorite-star">✴</span>
+              {bookSavedData.title} <span className="favorite-star">✴</span>
+            </h2>
+          ) : (
+            <h2>{bookSavedData.title}</h2>
+          )}
+
           <div className="img-info">
             <div className="book-saved-cover">
               <img src={bookSavedData.imgUrl} alt="" />
@@ -29,8 +40,19 @@ const BookSavedShow: React.FC<BookSavedShowProps> = ({
         </>
       )}
       <footer>
+        <button onClick={() => setShowBookSavedEdit(true)}>Edit</button>
         <button onClick={() => setShowBookSavedInfo(false)}>Close</button>
       </footer>
+      {bookSavedData && showBookSavedEdit && (
+        <div className="modal-book-saved-edit">
+          <div className="modal-book-saved-edit-overlay">
+            <BookSavedEdit
+              bookSavedData={bookSavedData}
+              setShowBookSavedEdit={setShowBookSavedEdit}
+            />
+          </div>
+        </div>
+      )}
     </div>
   )
 }

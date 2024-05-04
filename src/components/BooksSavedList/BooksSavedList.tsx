@@ -34,7 +34,14 @@ const BooksSavedList = () => {
             <img src={nocover} alt="" />
           )}
           <div>
-            <h3>{item.title}</h3>
+            {item.favorite === true ? (
+              <h3>
+                <span className="favorite-star">✴</span>
+                {item.title} <span className="favorite-star">✴</span>
+              </h3>
+            ) : (
+              <h3>{item.title}</h3>
+            )}
             <p>{item.author}</p>
           </div>
         </div>

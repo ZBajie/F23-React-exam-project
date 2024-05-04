@@ -12,6 +12,9 @@
   h2 {
     padding: $padding-secondary;
     text-align: center;
+    .favorite-star {
+      color: $color-quaternary;
+    }
   }
 
   .img-info {

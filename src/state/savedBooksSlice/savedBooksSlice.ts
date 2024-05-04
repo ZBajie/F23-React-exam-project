@@ -31,8 +31,19 @@ const savedBooksSlice = createSlice({
     addBook: (state, action) => {
       state.savedBooks.push(action.payload)
     },
+    favorite: (
+      state,
+      action: { payload: { key: string; favorite: boolean } }
+    ) => {
+      const { key, favorite } = action.payload
+      const book = state.savedBooks.find((item) => item.key === key)
+
+      if (book) {
+        book.favorite = favorite
+      }
+    },
   },
 })
 
-export const { addBook } = savedBooksSlice.actions
+export const { addBook, favorite } = savedBooksSlice.actions
 export default savedBooksSlice.reducer
