@@ -11,8 +11,8 @@ export type SavedBooksType = {
   key: string
   imgUrl: string
   favorite: boolean
-  readed: boolean
-  rate: number | null
+  read: boolean
+  rate: number
   readerComment: string
 }
 
@@ -42,8 +42,34 @@ const savedBooksSlice = createSlice({
         book.favorite = favorite
       }
     },
+    read: (state, action: { payload: { key: string; read: boolean } }) => {
+      const { key, read } = action.payload
+      const book = state.savedBooks.find((item) => item.key === key)
+      if (book) {
+        book.read = read
+      }
+    },
+    readerComment: (
+      state,
+      action: { payload: { key: string; review: string } }
+    ) => {
+      const { key, review } = action.payload
+      const book = state.savedBooks.find((item) => item.key === key)
+      if (book) {
+        book.readerComment = review
+      }
+    },
+
+    rate: (state, action: { payload: { key: string; rate: number } }) => {
+      const { key, rate } = action.payload
+      const book = state.savedBooks.find((item) => item.key === key)
+      if (book && rate <= 5 && rate >= 0) {
+        book.rate = rate
+      }
+    },
   },
 })
 
-export const { addBook, favorite } = savedBooksSlice.actions
+export const { addBook, favorite, read, rate, readerComment } =
+  savedBooksSlice.actions
 export default savedBooksSlice.reducer
