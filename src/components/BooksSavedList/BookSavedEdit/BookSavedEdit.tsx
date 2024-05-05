@@ -27,49 +27,52 @@ const BookSavedEdit: React.FC<BookSavedEditProps> = ({
     <div className="book-saved-edit">
       <h2>Edit</h2>
       <div>
-        <button
-          className={`button-favorite ${
-            buttonFavorite ? "button-favorite-true" : ""
-          }`}
-          onClick={() => {
-            const favoriteState = !bookSavedData.favorite
-            setButtonFavorite(!buttonFavorite)
-            dispatch(
-              favorite({ key: bookSavedData.key, favorite: favoriteState })
-            )
-          }}
-        >
-          Favorite
-        </button>
-        <button
-          className={`button-read ${buttonRead ? "button-read-true" : ""}`}
-          onClick={() => {
-            const readState = !bookSavedData.read
-            setButtonRead(!buttonRead)
-            dispatch(
-              read({
-                key: bookSavedData.key,
-                read: readState,
-              })
-            )
-          }}
-        >
-          Read
-        </button>
+        <div className="edit-rating-div">
+          <button
+            className={`button-favorite ${
+              buttonFavorite ? "button-favorite-true" : ""
+            }`}
+            onClick={() => {
+              const favoriteState = !bookSavedData.favorite
+              setButtonFavorite(!buttonFavorite)
+              dispatch(
+                favorite({ key: bookSavedData.key, favorite: favoriteState })
+              )
+            }}
+          >
+            Favorite
+          </button>
+          <button
+            className={`button-read ${buttonRead ? "button-read-true" : ""}`}
+            onClick={() => {
+              const readState = !bookSavedData.read
+              setButtonRead(!buttonRead)
+              dispatch(
+                read({
+                  key: bookSavedData.key,
+                  read: readState,
+                })
+              )
+            }}
+          >
+            Read
+          </button>
 
-        <input
-          type="number"
-          max={5}
-          min={0}
-          onChange={(e) => setRateInput(+e.target.value)}
-        />
-        <button
-          onClick={() =>
-            dispatch(rate({ key: bookSavedData.key, rate: rateInput }))
-          }
-        >
-          Rate
-        </button>
+          <input
+            className="edit-rating-input"
+            type="number"
+            max={5}
+            min={0}
+            onChange={(e) => setRateInput(+e.target.value)}
+          />
+          <button
+            onClick={() =>
+              dispatch(rate({ key: bookSavedData.key, rate: rateInput }))
+            }
+          >
+            Rate
+          </button>
+        </div>
 
         <label htmlFor="readerComment">Review</label>
         <textarea

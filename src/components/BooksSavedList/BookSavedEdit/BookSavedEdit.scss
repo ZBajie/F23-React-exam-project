@@ -14,13 +14,30 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    .button-favorite-true {
-      background-color: $button-background-color-quaternary;
-      color: $color-primary;
+    .edit-rating-div {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      button {
+        margin: $margin-primary;
+      }
+      .button-favorite-true {
+        background-color: $button-background-color-quaternary;
+        color: $color-primary;
+      }
+      .button-read-true {
+        background-color: $button-background-color-quaternary;
+        color: $color-primary;
+      }
+      .edit-rating-input {
+        width: 40px;
+        margin-left: $margin-secondary;
+        margin-right: $margin-primary;
+        padding: $padding-primary;
+      }
     }
-    .button-read-true {
-      background-color: $button-background-color-quaternary;
-      color: $color-primary;
+    button {
+      margin: $margin-primary;
     }
   }
 }

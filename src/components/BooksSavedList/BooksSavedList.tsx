@@ -43,6 +43,7 @@ const BooksSavedList = () => {
               <h3>{item.title}</h3>
             )}
             <p>{item.author}</p>
+            {item.read === true && <p>Read: 📖</p>}
           </div>
         </div>
       ))}
