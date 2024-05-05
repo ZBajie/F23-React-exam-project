@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit"
+import { description } from "../../type/BookChosedType"
 export type SavedBooksType = {
   title: string
-  author: string
-  first_sentence: string
-  description: string
+  author: string | string[]
+  first_sentence: string | string[]
+  description: string | string[] | description
   pages: number
   first_publish_year: number
   editions: number
@@ -28,8 +29,13 @@ const savedBooksSlice = createSlice({
   name: "savedBooks",
   initialState,
   reducers: {
-    addBook: (state, action) => {
-      state.savedBooks.push(action.payload)
+    addBook: (state, action: { payload: SavedBooksType }) => {
+      const book = state.savedBooks.find(
+        (item) => item.key === action.payload.key
+      )
+      if (!book) {
+        state.savedBooks.push(action.payload)
+      }
     },
     favorite: (
       state,

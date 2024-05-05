@@ -33,8 +33,8 @@ const BookChosed: React.FC<BookProps> = ({ bookData, setShowBookInfo }) => {
           `https://covers.openlibrary.org/b/olid/${bookData?.cover_edition_key}-M.jpg` ||
           "",
         favorite: false,
-        readed: false,
-        rate: null,
+        read: false,
+        rate: 0,
         readerComment: "",
       })
     )
