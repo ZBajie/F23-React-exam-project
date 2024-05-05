@@ -24,6 +24,7 @@ const SearchField: React.FC<SearchFieldProps> = ({ label }) => {
       </div>
       <button
         onClick={() => {
+          if (searchWord.current?.value === "") return
           dispatch(setSearchWord(searchWord.current?.value || ""))
           dispatch(setSearchFor("title"))
           navigate("/searchbook")
