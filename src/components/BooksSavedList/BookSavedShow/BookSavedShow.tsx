@@ -34,9 +34,14 @@ const BookSavedShow: React.FC<BookSavedShowProps> = ({
               <h3>{bookSavedData.author}</h3>
               <p>Pages: {bookSavedData.pages}</p>
               <p>Genre: {bookSavedData.genre}</p>
+              <p>Year: {bookSavedData.first_publish_year}</p>
+              <p>Editions: {bookSavedData.editions}</p>
             </div>
           </div>
-          <p className="first-sentence">{bookSavedData.first_sentence}</p>
+          <p className="first-sentence">
+            First sentence: {bookSavedData.first_sentence}
+          </p>
+
           {bookSavedData.read === true && (
             <div>
               <p className="read">Read: 📖 </p>
