@@ -1,0 +1,11 @@
+@import "./../../style/style.scss";
+.user-data {
+  width: fit-content;
+  margin: $margin-secondary;
+  padding: $padding-secondary;
+  border: 5px double $border-color-primary;
+  border-radius: $border-radius-primary;
+  h2 {
+    margin-bottom: $margin-secondary;
+  }
+}

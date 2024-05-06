@@ -1,9 +1,10 @@
 import BooksSavedList from "../../components/BooksSavedList/BooksSavedList"
+import ReadersData from "../../components/ReadersData/ReadersData"
 
 const Home = () => {
   return (
     <section className="home page">
-      <h1>Home</h1>
+      <ReadersData />
       <BooksSavedList />
     </section>
   )
