@@ -21,10 +21,10 @@ const BookList: React.FC<BookProps> = ({ url, handleNext, handlePrev }) => {
       {data && (
         <div>
           <h2>Search Result: {data.numFound}</h2>
-          {data.docs.map((item) => (
+          {data.docs.map((item, i) => (
             <div
               className="book-list-card"
-              key={item.key}
+              key={i}
               onClick={() => {
                 setShowBookInfo(true)
                 setBookData(item)

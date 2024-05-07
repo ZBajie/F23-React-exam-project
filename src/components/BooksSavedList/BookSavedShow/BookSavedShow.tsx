@@ -12,7 +12,6 @@ const BookSavedShow: React.FC<BookSavedShowProps> = ({
   setShowBookSavedInfo,
 }) => {
   const [showBookSavedEdit, setShowBookSavedEdit] = useState(false)
-  console.log(bookSavedData)
   return (
     <div className="book-saved-show">
       {bookSavedData && (
