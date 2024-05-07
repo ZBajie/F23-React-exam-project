@@ -3,6 +3,7 @@ import ErrorPage from "./pages/ErrorPage/ErrorPage"
 import Home from "./pages/Home/Home"
 import Layout from "./pages/Layout/Layout"
 import BookSearchPage from "./pages/BookSearchPage/BookSearchPage"
+import AuthorSearchPage from "./pages/AuthorSearchPage/AuthorSearchPage"
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
       {
         path: "/searchbook",
         element: <BookSearchPage />,
+      },
+      {
+        path: "searchauthor",
+        element: <AuthorSearchPage />,
       },
     ],
   },
