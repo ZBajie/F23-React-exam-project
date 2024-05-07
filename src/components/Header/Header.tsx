@@ -12,7 +12,7 @@ const Header = () => {
         <h1>The Gray Society</h1>
         <p>Library</p>
       </div>
-      <SearchField label="Search by title" />
+      <SearchField />
     </header>
   )
 }
