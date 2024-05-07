@@ -38,6 +38,7 @@ const BookChosed: React.FC<BookProps> = ({ bookData, setShowBookInfo }) => {
         readerComment: "",
       })
     )
+    setShowBookInfo(false)
   }
 
   return (

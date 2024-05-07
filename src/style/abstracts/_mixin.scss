@@ -1,4 +1,5 @@
 @mixin button-base {
+  font-size: $font-size-secondary;
   padding: $padding-primary;
   background-color: $button-background-color-primary;
   color: $button-color-primary;
