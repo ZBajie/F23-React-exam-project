@@ -25,15 +25,17 @@ const BooksSavedList = () => {
     <>
       {booksSavedShowSorted.length > 0 && (
         <section className="books-saved-list">
-          <h2>Saved Books</h2>
-          <select
-            value={showInList}
-            onChange={(e) => setShowInList(e.target.value)}
-          >
-            <option value="all">All</option>
-            <option value="favorites">Favorites</option>
-            <option value="read">Read</option>
-          </select>
+          <header>
+            <h2>Saved Books</h2>
+            <select
+              value={showInList}
+              onChange={(e) => setShowInList(e.target.value)}
+            >
+              <option value="all">All</option>
+              <option value="favorites">Favorites</option>
+              <option value="read">Read</option>
+            </select>
+          </header>
           {booksSavedShowSorted.map((item) => (
             <>
               <div

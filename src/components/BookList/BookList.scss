@@ -5,7 +5,7 @@
   margin: $margin-secondary;
   padding: $padding-secondary;
   background-color: $background-color-secondary;
-  border-radius: $border-radius-primary;
+  @include border-primary;
   box-shadow: 5px 5px 5px $box-shadow-color-primary;
 
   h2 {

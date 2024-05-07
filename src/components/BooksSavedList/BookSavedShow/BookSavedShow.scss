@@ -3,8 +3,7 @@
   background-color: $background-color-secondary;
   margin: $margin-secondary;
   padding: $padding-secondary;
-  border: 5px double $border-color-primary;
-  border-radius: $border-radius-primary;
+  @include border-primary;
   box-shadow: 5px 5px 5px $box-shadow-color-secondary;
   max-height: 90vh;
   overflow-y: auto;
@@ -68,8 +67,7 @@
     height: 100%;
     background-color: $background-color-primary;
     .modal-book-saved-edit-overlay {
-      border: 5px double $border-color-primary;
-      border-radius: $border-radius-primary;
+      @include border-primary;
       background-color: $background-color-secondary;
       position: relative;
       top: 20%;

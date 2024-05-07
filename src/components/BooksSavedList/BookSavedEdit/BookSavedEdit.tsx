@@ -80,7 +80,7 @@ const BookSavedEdit: React.FC<BookSavedEditProps> = ({
           name="readerComment"
           id="readerComment"
           rows={7}
-          cols={50}
+          cols={40}
           value={review}
           onChange={(e) => setReview(e.target.value)}
         />

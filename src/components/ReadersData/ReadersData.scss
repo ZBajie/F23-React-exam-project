@@ -3,8 +3,8 @@
   width: fit-content;
   margin: $margin-secondary;
   padding: $padding-secondary;
-  border: 5px double $border-color-primary;
-  border-radius: $border-radius-primary;
+  background-color: $background-color-secondary;
+  @include border-primary;
   h2 {
     margin-bottom: $margin-secondary;
   }

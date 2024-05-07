@@ -23,3 +23,8 @@
   color: $button-color-primary;
   border-radius: $border-radius-primary;
 }
+
+@mixin border-primary {
+  border: 5px double $border-color-primary;
+  border-radius: $border-radius-primary;
+}
