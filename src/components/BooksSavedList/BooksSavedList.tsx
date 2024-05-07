@@ -6,6 +6,7 @@ import BookSavedShow from "./BookSavedShow/BookSavedShow"
 import { useState } from "react"
 
 import { SavedBooksType } from "./../../state/savedBooksSlice/savedBooksSlice"
+import { booksSavedSort } from "../../utils/sorters"
 
 const BooksSavedList = () => {
   const booksSavedList = useSelector(
@@ -16,39 +17,52 @@ const BooksSavedList = () => {
     null
   )
   const [showBookSavedInfo, setShowBookSavedInfo] = useState(false)
+  const [showInList, setShowInList] = useState("all")
+
+  const booksSavedShowSorted = booksSavedSort(booksSavedList, showInList)
 
   return (
     <>
-      {booksSavedList.length > 0 && (
+      {booksSavedShowSorted.length > 0 && (
         <section className="books-saved-list">
           <h2>Saved Books</h2>
-          {booksSavedList.map((item) => (
-            <div
-              key={item.key}
-              className="book-saved-card"
-              onClick={() => {
-                setShowBookSavedInfo(true)
-                setBookSavedData(item)
-              }}
-            >
-              {item.imgUrl.length > 5 ? (
-                <img src={item.imgUrl} alt="No cover" />
-              ) : (
-                <img src={nocover} alt="" />
-              )}
-              <div>
-                {item.favorite === true ? (
-                  <h3>
-                    <span className="favorite-star">✴</span>
-                    {item.title} <span className="favorite-star">✴</span>
-                  </h3>
+          <select
+            value={showInList}
+            onChange={(e) => setShowInList(e.target.value)}
+          >
+            <option value="all">All</option>
+            <option value="favorites">Favorites</option>
+            <option value="read">Read</option>
+          </select>
+          {booksSavedShowSorted.map((item) => (
+            <>
+              <div
+                key={item.key}
+                className="book-saved-card"
+                onClick={() => {
+                  setShowBookSavedInfo(true)
+                  setBookSavedData(item)
+                }}
+              >
+                {item.imgUrl.length > 5 ? (
+                  <img src={item.imgUrl} alt="No cover" />
                 ) : (
-                  <h3>{item.title}</h3>
+                  <img src={nocover} alt="" />
                 )}
-                <p>{item.author}</p>
-                {item.read === true && <p>Read: 📖</p>}
+                <div>
+                  {item.favorite === true ? (
+                    <h3>
+                      <span className="favorite-star">✴</span>
+                      {item.title} <span className="favorite-star">✴</span>
+                    </h3>
+                  ) : (
+                    <h3>{item.title}</h3>
+                  )}
+                  <p>{item.author}</p>
+                  {item.read === true && <p>Read: 📖</p>}
+                </div>
               </div>
-            </div>
+            </>
           ))}
           {bookSavedData && showBookSavedInfo && (
             <div className="modal-book-saved-info">

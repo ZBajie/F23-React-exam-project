@@ -61,6 +61,7 @@ const BookSavedShow: React.FC<BookSavedShowProps> = ({
             <BookSavedEdit
               bookSavedData={bookSavedData}
               setShowBookSavedEdit={setShowBookSavedEdit}
+              setShowBookSavedInfo={setShowBookSavedInfo}
             />
           </div>
         </div>
