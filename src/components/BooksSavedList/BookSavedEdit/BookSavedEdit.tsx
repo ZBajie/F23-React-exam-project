@@ -1,6 +1,9 @@
 import "./BookSavedEdit.scss"
 import { useDispatch } from "react-redux"
-import { SavedBooksType } from "../../../state/savedBooksSlice/savedBooksSlice"
+import {
+  SavedBooksType,
+  removeBook,
+} from "../../../state/savedBooksSlice/savedBooksSlice"
 import { AppDispatch } from "../../../state/store"
 import {
   favorite,
@@ -12,10 +15,12 @@ import { useState } from "react"
 type BookSavedEditProps = {
   bookSavedData: SavedBooksType
   setShowBookSavedEdit: (value: boolean) => void
+  setShowBookSavedInfo: (value: boolean) => void
 }
 const BookSavedEdit: React.FC<BookSavedEditProps> = ({
   bookSavedData,
   setShowBookSavedEdit,
+  setShowBookSavedInfo,
 }) => {
   const dispatch = useDispatch<AppDispatch>()
   const [buttonFavorite, setButtonFavorite] = useState(bookSavedData.favorite)
@@ -57,21 +62,17 @@ const BookSavedEdit: React.FC<BookSavedEditProps> = ({
           >
             Read
           </button>
-
+          <label htmlFor="edit-rating" className="edit-rating-label">
+            Rate
+          </label>
           <input
+            id="edit-rating"
             className="edit-rating-input"
             type="number"
             max={5}
             min={0}
             onChange={(e) => setRateInput(+e.target.value)}
           />
-          <button
-            onClick={() =>
-              dispatch(rate({ key: bookSavedData.key, rate: rateInput }))
-            }
-          >
-            Rate
-          </button>
         </div>
 
         <label htmlFor="readerComment">Review</label>
@@ -83,23 +84,31 @@ const BookSavedEdit: React.FC<BookSavedEditProps> = ({
           value={review}
           onChange={(e) => setReview(e.target.value)}
         />
+      </div>
+
+      <div className="buttons">
         <button
           onClick={() => {
-            dispatch(readerComment({ key: bookSavedData.key, review: review }))
+            const confirmed = confirm("Are you sure?")
+            if (!confirmed) return
+            dispatch(removeBook({ key: bookSavedData.key }))
+            setShowBookSavedEdit(false)
+            setShowBookSavedInfo(false)
           }}
         >
-          Save Review
+          Remove book
+        </button>
+        <button
+          onClick={() => {
+            dispatch(rate({ key: bookSavedData.key, rate: rateInput }))
+            dispatch(readerComment({ key: bookSavedData.key, review: review }))
+            setShowBookSavedEdit(false)
+            setShowBookSavedInfo(false)
+          }}
+        >
+          Save and Close
         </button>
       </div>
-      <footer>
-        <button
-          onClick={() => {
-            setShowBookSavedEdit(false)
-          }}
-        >
-          Close
-        </button>
-      </footer>
     </div>
   )
 }

@@ -37,6 +37,13 @@ const savedBooksSlice = createSlice({
         state.savedBooks.push(action.payload)
       }
     },
+    removeBook: (state, action: { payload: { key: string } }) => {
+      const { key } = action.payload
+      const book = state.savedBooks.find((item) => item.key === key)
+      if (book) {
+        state.savedBooks = state.savedBooks.filter((item) => item.key !== key)
+      }
+    },
     favorite: (
       state,
       action: { payload: { key: string; favorite: boolean } }
@@ -76,6 +83,6 @@ const savedBooksSlice = createSlice({
   },
 })
 
-export const { addBook, favorite, read, rate, readerComment } =
+export const { addBook, removeBook, favorite, read, rate, readerComment } =
   savedBooksSlice.actions
 export default savedBooksSlice.reducer

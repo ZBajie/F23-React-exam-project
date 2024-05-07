@@ -29,15 +29,31 @@
         background-color: $button-background-color-quaternary;
         color: $color-primary;
       }
-      .edit-rating-input {
-        width: 40px;
+      .edit-rating-label {
         margin-left: $margin-secondary;
+        margin-right: $margin-primary;
+      }
+
+      .edit-rating-input {
+        width: 50px;
         margin-right: $margin-primary;
         padding: $padding-primary;
       }
     }
     button {
       margin: $margin-primary;
+    }
+  }
+  .buttons {
+    margin-bottom: $margin-secondary;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    button:first-child {
+      background-color: $button-background-color-danger;
+    }
+    button:last-child {
+      background-color: $button-background-color-success;
     }
   }
 }
