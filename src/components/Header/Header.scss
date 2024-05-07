@@ -13,4 +13,18 @@
       height: 200px;
     }
   }
+  .header-text {
+    h1 {
+      font-size: $font-size-tertiary;
+      text-align: center;
+      font-family: $cursive;
+      text-decoration: double underline $color-quaternary;
+    }
+
+    p {
+      font-size: $font-size-tertiary;
+      text-align: center;
+      font-family: $cursive;
+    }
+  }
 }

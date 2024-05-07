@@ -8,7 +8,10 @@ const Header = () => {
       <Link to={"/"}>
         <img src={loggo} alt="" />
       </Link>
-      <h1>Your personal library</h1>
+      <div className="header-text">
+        <h1>The Gray Society</h1>
+        <p>Library</p>
+      </div>
       <SearchField label="Search by title" />
     </header>
   )
