@@ -1,0 +1,16 @@
+@import "./../../../style/style.scss";
+
+.author-chosed-card {
+  background-color: $background-color-secondary;
+  margin: $margin-secondary;
+  padding: $padding-secondary;
+  @include border-primary;
+  box-shadow: 5px 5px 5px $box-shadow-color-secondary;
+  max-height: 90vh;
+  overflow-y: auto;
+
+  h2 {
+    padding: $padding-secondary;
+    text-align: center;
+  }
+}

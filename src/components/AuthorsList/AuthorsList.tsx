@@ -1,6 +1,11 @@
+import { useState } from "react"
 import { useFetch } from "../../hooks/useFetch"
-import { AuthorsSearchResultType } from "../../type/authorsSearchResultType"
+import {
+  Author,
+  AuthorsSearchResultType,
+} from "../../type/AuthorsSearchResultType"
 import "./AuthorsList.scss"
+import AuthorChosed from "./AuthorChosed/AuthorChosed"
 
 type AuthorsListProps = {
   url: string
@@ -14,6 +19,9 @@ const AuthorsList: React.FC<AuthorsListProps> = ({
 }) => {
   const { data, error, loading } = useFetch<AuthorsSearchResultType>(url)
 
+  const [authorData, setAuthorData] = useState<Author | null>(null)
+  const [showAuthorInfo, setShowAuthorInfo] = useState(false)
+
   return (
     <article className="book-list">
       {loading && <p>Loading...</p>}
@@ -22,7 +30,14 @@ const AuthorsList: React.FC<AuthorsListProps> = ({
         <div>
           <h2>Search Result: {data.numFound}</h2>
           {data.docs.map((item, i) => (
-            <div className="book-list-card" key={i} onClick={() => {}}>
+            <div
+              className="book-list-card"
+              key={i}
+              onClick={() => {
+                setAuthorData(item)
+                setShowAuthorInfo(true)
+              }}
+            >
               <div>
                 <h3>{item.name}</h3>
                 <p>Alternative names: {item.alternate_names}</p>
@@ -39,6 +54,16 @@ const AuthorsList: React.FC<AuthorsListProps> = ({
             >
               Next
             </button>
+          </div>
+        </div>
+      )}
+      {authorData && showAuthorInfo && (
+        <div className="modal-book-info">
+          <div className="modal-book-info-overlay">
+            <AuthorChosed
+              authorData={authorData}
+              setShowAuthorInfo={setShowAuthorInfo}
+            />
           </div>
         </div>
       )}
