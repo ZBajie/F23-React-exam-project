@@ -45,7 +45,7 @@ const AuthorSavedShow: React.FC<AuthorSavedShowProps> = ({
               </p>
             )}
           </div>
-          {authorData.bio && (
+          {authorData.bio && typeof authorData.bio === "string" && (
             <div className="bio">
               <p>Bio:</p>
               <p>{authorData.bio}</p>
