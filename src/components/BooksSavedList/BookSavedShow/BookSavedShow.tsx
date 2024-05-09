@@ -31,25 +31,44 @@ const BookSavedShow: React.FC<BookSavedShowProps> = ({
             </div>
             <div className="short-info">
               <h3>{bookSavedData.author}</h3>
-              <p>Pages: {bookSavedData.pages}</p>
-              <p>Genre: {bookSavedData.genre}</p>
-              <p>Year: {bookSavedData.first_publish_year}</p>
-              <p>Editions: {bookSavedData.editions}</p>
+              {bookSavedData.pages && <p>Pages: {bookSavedData.pages}</p>}
+              {bookSavedData.genre && <p>Genre: {bookSavedData.genre}</p>}
+              {bookSavedData.first_publish_year && (
+                <p>Year: {bookSavedData.first_publish_year}</p>
+              )}
+              {bookSavedData.editions && (
+                <p>Editions: {bookSavedData.editions}</p>
+              )}
             </div>
           </div>
-          <p className="first-sentence">
-            First sentence: {bookSavedData.first_sentence}
-          </p>
+          {bookSavedData.first_sentence && (
+            <div className="first-sentence">
+              <p>First sentence:</p>
+              <p>{bookSavedData.first_sentence}</p>
+            </div>
+          )}
+
+          {bookSavedData.description &&
+            typeof bookSavedData.description === "string" && (
+              <>
+                <div className="description">
+                  <p>Description: </p>
+                  <p>{bookSavedData.description}</p>
+                </div>
+              </>
+            )}
 
           {bookSavedData.read === true && (
             <div className="read-comment">
               <h2>Reader info</h2>
               <p className="read">Read: 📖 </p>
               <p>Rating: {bookSavedData.rate} </p>
-              <div>
-                <p>Comment:</p>
-                <p>{bookSavedData.readerComment}</p>
-              </div>
+              {bookSavedData.readerComment && (
+                <div>
+                  <p>Comment:</p>
+                  <p>{bookSavedData.readerComment}</p>
+                </div>
+              )}
             </div>
           )}
         </>
