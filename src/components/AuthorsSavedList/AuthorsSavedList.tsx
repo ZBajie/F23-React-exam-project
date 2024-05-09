@@ -17,49 +17,51 @@ const AuthorsSavedList = () => {
 
   return (
     <>
-      <section className="authors-saved-list">
-        <header>
-          <h2>Saved Authors</h2>
-          <select
-            value={showInList}
-            onChange={(e) => setShowInList(e.target.value)}
-          >
-            <option value="all">All</option>
-            <option value="favorites">Favorites</option>
-          </select>
-        </header>
-        {authorSavedDataSorted.map((item, i) => (
-          <>
-            <div
-              key={i}
-              className="authors-saved-card"
-              onClick={() => {
-                setAuthorData(item)
-                setShowAuthorInfo(true)
-              }}
+      {authorSavedDataSorted.length > 0 && (
+        <section className="authors-saved-list">
+          <header>
+            <h2>Saved Authors</h2>
+            <select
+              value={showInList}
+              onChange={(e) => setShowInList(e.target.value)}
             >
-              {item.favorite === true ? (
-                <h2>
-                  <span className="favorite-star">✴</span>
-                  {item.name} <span className="favorite-star">✴</span>
-                </h2>
-              ) : (
-                <h2>{item.name}</h2>
-              )}
+              <option value="all">All</option>
+              <option value="favorites">Favorites</option>
+            </select>
+          </header>
+          {authorSavedDataSorted.map((item, i) => (
+            <>
+              <div
+                key={i}
+                className="authors-saved-card"
+                onClick={() => {
+                  setAuthorData(item)
+                  setShowAuthorInfo(true)
+                }}
+              >
+                {item.favorite === true ? (
+                  <h2>
+                    <span className="favorite-star">✴</span>
+                    {item.name} <span className="favorite-star">✴</span>
+                  </h2>
+                ) : (
+                  <h2>{item.name}</h2>
+                )}
+              </div>
+            </>
+          ))}
+          {authorData && showAuthorInfo && (
+            <div className="modal-author-saved-info">
+              <div className="modal-author-saved-info-overlay">
+                <AuthorSavedShow
+                  authorData={authorData}
+                  setShowAuthorInfo={setShowAuthorInfo}
+                />
+              </div>
             </div>
-          </>
-        ))}
-        {authorData && showAuthorInfo && (
-          <div className="modal-author-saved-info">
-            <div className="modal-author-saved-info-overlay">
-              <AuthorSavedShow
-                authorData={authorData}
-                setShowAuthorInfo={setShowAuthorInfo}
-              />
-            </div>
-          </div>
-        )}
-      </section>
+          )}
+        </section>
+      )}
     </>
   )
 }
