@@ -2,8 +2,9 @@
 
 .books-saved-list {
   width: fit-content;
-  margin: $margin-secondary;
-  padding: $padding-secondary;
+  margin: $margin-primary;
+  padding: $padding-primary;
+  padding-top: $padding-secondary;
   background-color: $background-color-secondary;
   @include border-primary;
   box-shadow: 5px 5px 5px $box-shadow-color-primary;
