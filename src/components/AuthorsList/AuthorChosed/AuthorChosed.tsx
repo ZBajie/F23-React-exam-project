@@ -29,10 +29,12 @@ const AuthorChosed: React.FC<AuthorChosedProps> = ({
         death_date: data?.death_date || "",
         top_work: authorData.top_work || "",
         top_subject: authorData.top_subjects[0] || "",
+        webpage: data?.links?.[0]?.url || "",
         bio: data?.bio || "",
         favorite: false,
       })
     )
+
     setShowAuthorInfo(false)
   }
 
@@ -50,7 +52,11 @@ const AuthorChosed: React.FC<AuthorChosedProps> = ({
               <p>Top Subjects: {authorData.top_subjects[0]}</p>
             )}
             {authorData.top_work && <p>Top Work: {authorData.top_work}</p>}
-            {data.links && <p>Webbpage: {data.links[0].url}</p>}
+            {data.links && (
+              <p>
+                Webbpage: <a href={data.links[0].url}>{data.links[0].url}</a>
+              </p>
+            )}
           </div>
 
           {data.bio && typeof data.bio === "string" && (

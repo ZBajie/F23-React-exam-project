@@ -32,6 +32,9 @@
     display: flex;
     flex-direction: column;
   }
+  .bio {
+    margin-top: $margin-secondary;
+  }
 
   footer {
     margin-top: $margin-secondary;

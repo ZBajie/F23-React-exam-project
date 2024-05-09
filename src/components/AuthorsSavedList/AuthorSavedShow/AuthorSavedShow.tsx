@@ -33,11 +33,24 @@ const AuthorSavedShow: React.FC<AuthorSavedShowProps> = ({
           )}
 
           <div className="short-info">
-            <p>Birth: {authorData.birth_date}</p>
+            {authorData.birth_date && <p>Birth: {authorData.birth_date}</p>}
             {authorData.death_date && <p>Died: {authorData.death_date}</p>}
-            <p>Top Subject: {authorData.top_subject}</p>
-            <p>Top work: {authorData.top_work}</p>
+            {authorData.top_subject && (
+              <p>Top Subject: {authorData.top_subject}</p>
+            )}
+            {authorData.top_work && <p>Top Work: {authorData.top_work}</p>}
+            {authorData.webpage && (
+              <p>
+                Webpage: <a href={authorData.webpage}>{authorData.webpage}</a>
+              </p>
+            )}
           </div>
+          {authorData.bio && (
+            <div className="bio">
+              <p>Bio:</p>
+              <p>{authorData.bio}</p>
+            </div>
+          )}
         </>
       )}
       <footer>

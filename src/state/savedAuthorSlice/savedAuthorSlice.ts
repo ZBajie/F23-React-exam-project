@@ -7,6 +7,7 @@ export type SavedAuthorType = {
   death_date: string
   top_work: string
   top_subject: string
+  webpage: string
   bio: string
   favorite: boolean
 }
