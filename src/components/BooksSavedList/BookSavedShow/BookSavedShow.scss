@@ -47,6 +47,12 @@
   .description {
     margin: $margin-secondary;
   }
+  .read-comment {
+    margin: $margin-secondary;
+    div {
+      margin-top: $margin-secondary;
+    }
+  }
   footer {
     padding: $padding-secondary;
     display: flex;

@@ -36,10 +36,10 @@ const BooksSavedList = () => {
               <option value="read">Read</option>
             </select>
           </header>
-          {booksSavedShowSorted.map((item, i) => (
+          {booksSavedShowSorted.map((item) => (
             <>
               <div
-                key={i}
+                key={item.key}
                 className="book-saved-card"
                 onClick={() => {
                   setShowBookSavedInfo(true)

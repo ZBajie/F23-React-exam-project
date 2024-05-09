@@ -42,10 +42,14 @@ const BookSavedShow: React.FC<BookSavedShowProps> = ({
           </p>
 
           {bookSavedData.read === true && (
-            <div>
+            <div className="read-comment">
+              <h2>Reader info</h2>
               <p className="read">Read: 📖 </p>
               <p>Rating: {bookSavedData.rate} </p>
-              <p>{bookSavedData.readerComment}</p>
+              <div>
+                <p>Comment:</p>
+                <p>{bookSavedData.readerComment}</p>
+              </div>
             </div>
           )}
         </>

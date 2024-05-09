@@ -29,10 +29,10 @@ const AuthorsSavedList = () => {
               <option value="favorites">Favorites</option>
             </select>
           </header>
-          {authorSavedDataSorted.map((item, i) => (
+          {authorSavedDataSorted.map((item) => (
             <>
               <div
-                key={i}
+                key={item.key}
                 className="authors-saved-card"
                 onClick={() => {
                   setAuthorData(item)
