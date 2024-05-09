@@ -1,3 +1,4 @@
+import AuthorsSavedList from "../../components/AuthorsSavedList/AuthorsSavedList"
 import BooksSavedList from "../../components/BooksSavedList/BooksSavedList"
 import ReadersData from "../../components/ReadersData/ReadersData"
 
@@ -6,6 +7,7 @@ const Home = () => {
     <section className="home page">
       <ReadersData />
       <BooksSavedList />
+      <AuthorsSavedList />
     </section>
   )
 }

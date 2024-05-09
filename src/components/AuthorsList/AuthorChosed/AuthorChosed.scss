@@ -13,4 +13,19 @@
     padding: $padding-secondary;
     text-align: center;
   }
+  .bio {
+    margin-top: $margin-secondary;
+  }
+  footer {
+    padding: $padding-secondary;
+    display: flex;
+    justify-content: end;
+    button:first-child {
+      background-color: $button-background-color-success;
+      margin-right: $margin-secondary;
+    }
+    button:last-child {
+      background-color: $button-background-color-danger;
+    }
+  }
 }

@@ -1,0 +1,54 @@
+@import "./../../../style/style.scss";
+
+.author-saved-show {
+  font-size: $font-size-secondary;
+  background-color: $background-color-secondary;
+  margin: $margin-secondary;
+  padding: $padding-secondary;
+  @include border-primary;
+  box-shadow: 5px 5px 5px $box-shadow-color-secondary;
+  max-height: 90vh;
+  overflow-y: auto;
+
+  h2 {
+    padding: $padding-secondary;
+    text-align: center;
+    .favorite-star {
+      color: $color-quaternary;
+    }
+  }
+
+  .book-saved-cover {
+    width: 200px;
+    height: auto;
+    margin-right: $margin-secondary;
+    transition: width 1s;
+    &:hover {
+      width: 300px;
+      height: auto;
+    }
+  }
+  .short-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  footer {
+    margin-top: $margin-secondary;
+    padding: $padding-secondary;
+    display: flex;
+    justify-content: space-around;
+
+    button:first-child {
+      background-color: $button-background-color-danger;
+    }
+    .button-favorite-true {
+      background-color: $button-background-color-quaternary;
+      color: $color-primary;
+    }
+
+    button:last-child {
+      background-color: $button-background-color-danger;
+    }
+  }
+}

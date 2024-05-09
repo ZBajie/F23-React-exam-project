@@ -43,13 +43,23 @@ const AuthorChosed: React.FC<AuthorChosedProps> = ({
       {authorData && data && (
         <>
           <h2>{authorData.name}</h2>
-          {authorData.top_work && <p>Top Work: {authorData.top_work}</p>}
-          <p>Birth: {authorData.birth_date}</p>
-          {data.death_date && <p>Death: {data.death_date}</p>}
-          {data.links && <p>Webbpage: {data.links[0].url}</p>}
-          {data.bio && typeof data.bio === "string" && <p>Bio: {data.bio}</p>}
-          {authorData.top_subjects && (
-            <p>Top Subjects: {authorData.top_subjects[0]}</p>
+          <div className="author-short-facts">
+            <p>Birth: {authorData.birth_date}</p>
+            {data.death_date && <p>Death: {data.death_date}</p>}
+            {authorData.top_subjects && (
+              <p>Top Subjects: {authorData.top_subjects[0]}</p>
+            )}
+            {authorData.top_work && <p>Top Work: {authorData.top_work}</p>}
+            {data.links && <p>Webbpage: {data.links[0].url}</p>}
+          </div>
+
+          {data.bio && typeof data.bio === "string" && (
+            <>
+              <div className="bio">
+                <p>Bio:</p>
+                <p>{data.bio}</p>
+              </div>
+            </>
           )}
         </>
       )}
