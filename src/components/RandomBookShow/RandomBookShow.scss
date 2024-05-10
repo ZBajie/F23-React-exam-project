@@ -1,0 +1,60 @@
+@import "./../../style/style.scss";
+
+.random-book {
+  background-color: $background-color-secondary;
+  margin: $margin-secondary;
+  padding: $padding-secondary;
+  @include border-primary;
+  box-shadow: 5px 5px 5px $box-shadow-color-secondary;
+  max-height: 90vh;
+  overflow-y: auto;
+
+  h2 {
+    padding: $padding-secondary;
+    text-align: center;
+  }
+
+  .img-info {
+    padding: $padding-secondary;
+    display: flex;
+    flex-direction: row;
+
+    .book-cover {
+      width: 200px;
+      height: auto;
+      margin-right: $margin-secondary;
+      transition: all 1s;
+      &:hover {
+        width: 300px;
+        height: auto;
+      }
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+    .short-info {
+      display: flex;
+      flex-direction: column;
+      h3 {
+        margin-bottom: $margin-secondary;
+      }
+    }
+  }
+  .first-sentence,
+  .description {
+    margin: $margin-secondary;
+  }
+  footer {
+    padding: $padding-secondary;
+    display: flex;
+    justify-content: end;
+    button:first-child {
+      background-color: $button-background-color-success;
+      margin-right: $margin-secondary;
+    }
+    button:last-child {
+      background-color: $button-background-color-danger;
+    }
+  }
+}
