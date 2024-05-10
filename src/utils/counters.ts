@@ -1,3 +1,4 @@
+import { SavedAuthorType } from "../state/savedAuthorSlice/savedAuthorSlice"
 import { SavedBooksType } from "../state/savedBooksSlice/savedBooksSlice"
 
 export const booksAndpagesCount = (books: SavedBooksType[]) => {
@@ -20,4 +21,13 @@ export const favoiteBooksCount = (books: SavedBooksType[]) => {
     }
   })
   return favoriteBooks
+}
+export const favoiteAuthorsCount = (authors: SavedAuthorType[]) => {
+  let favoriteAuthors = 0
+  authors.map((item) => {
+    if (item.favorite === true) {
+      favoriteAuthors += 1
+    }
+  })
+  return favoriteAuthors
 }
