@@ -54,7 +54,10 @@ const AuthorChosed: React.FC<AuthorChosedProps> = ({
             {authorData.top_work && <p>Top Work: {authorData.top_work}</p>}
             {data.links && (
               <p>
-                Webbpage: <a href={data.links[0].url}>{data.links[0].url}</a>
+                Webbpage:{" "}
+                <a href={data.links[0].url} target="_blank">
+                  {data.links[0].url}
+                </a>
               </p>
             )}
           </div>

@@ -41,7 +41,10 @@ const AuthorSavedShow: React.FC<AuthorSavedShowProps> = ({
             {authorData.top_work && <p>Top Work: {authorData.top_work}</p>}
             {authorData.webpage && (
               <p>
-                Webpage: <a href={authorData.webpage}>{authorData.webpage}</a>
+                Webpage:{" "}
+                <a href={authorData.webpage} target="_blank">
+                  {authorData.webpage}
+                </a>
               </p>
             )}
           </div>
