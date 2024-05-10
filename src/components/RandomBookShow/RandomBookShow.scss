@@ -1,6 +1,7 @@
 @import "./../../style/style.scss";
 
 .random-book {
+  max-width: 500px;
   background-color: $background-color-secondary;
   margin: $margin-secondary;
   padding: $padding-secondary;
@@ -48,13 +49,18 @@
   footer {
     padding: $padding-secondary;
     display: flex;
-    justify-content: end;
+    justify-content: space-around;
+    align-items: center;
     button:first-child {
       background-color: $button-background-color-success;
       margin-right: $margin-secondary;
     }
     button:last-child {
-      background-color: $button-background-color-danger;
+      background-color: $button-background-color-success;
+      &:active {
+        background-color: $button-background-color-primary;
+        transform: translateX(5px) translateY(5px) rotate(10deg);
+      }
     }
   }
 }

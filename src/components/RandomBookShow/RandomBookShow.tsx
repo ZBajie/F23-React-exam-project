@@ -7,15 +7,13 @@ import nocover from "../../assets/nocover.png"
 import { useDispatch } from "react-redux"
 import { AppDispatch } from "../../state/store"
 import { addBook } from "../../state/savedBooksSlice/savedBooksSlice"
+import { getRandomUrlNumber } from "../../utils/randoms"
 
 const RandomBookShow = () => {
   const dispatch = useDispatch<AppDispatch>()
 
   const [url, setUrl] = useState<string>("")
   const [urlTitle, setUrlTitle] = useState<string>("")
-  const getRandomUrlNumber = (min: number, max: number) => {
-    return Math.floor(Math.random() * (max - min) + min)
-  }
 
   const { data, error, loading } = useFetch<BookChosedType>(url)
   const {
@@ -87,7 +85,7 @@ const RandomBookShow = () => {
               <p>published year: {dataTitle.docs[0].first_publish_year}</p>
               <p>Pages: {dataTitle.docs[0].number_of_pages_median}</p>
               <p>Editions: {dataTitle.docs[0].edition_count}</p>
-              {dataTitle?.docs[0].subject && (
+              {dataTitle?.docs[0]?.subject && (
                 <>
                   <p>
                     Genre:
@@ -123,6 +121,7 @@ const RandomBookShow = () => {
         </>
       )}
       <footer>
+        Random book tips.
         <button onClick={handleOnClickSave}>Save</button>
       </footer>
     </section>
