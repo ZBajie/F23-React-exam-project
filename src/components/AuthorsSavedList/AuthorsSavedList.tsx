@@ -17,7 +17,7 @@ const AuthorsSavedList = () => {
 
   return (
     <>
-      {authorSavedDataSorted.length > 0 && (
+      {authorSavedData.length > 0 && (
         <section className="authors-saved-list">
           <header>
             <h2>Saved Authors</h2>

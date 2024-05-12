@@ -23,7 +23,7 @@ const BooksSavedList = () => {
 
   return (
     <>
-      {booksSavedShowSorted.length > 0 && (
+      {booksSavedList.length > 0 && (
         <section className="books-saved-list">
           <header>
             <h2>Saved Books</h2>
