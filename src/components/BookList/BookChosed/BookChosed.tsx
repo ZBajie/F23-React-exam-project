@@ -18,6 +18,8 @@ const BookChosed: React.FC<BookProps> = ({ bookData, setShowBookInfo }) => {
   const { data, error, loading } = useFetch<BookChosedType>(bookUrl)
 
   const handleOnClickSave = () => {
+    const subject: string[] = bookData?.subject || [""]
+
     dispatch(
       addBook({
         title: bookData?.title || "",
@@ -27,7 +29,7 @@ const BookChosed: React.FC<BookProps> = ({ bookData, setShowBookInfo }) => {
         pages: bookData?.number_of_pages_median || 0,
         first_publish_year: bookData?.first_publish_year || 0,
         editions: bookData?.edition_count || 0,
-        genre: bookData?.subject[0] || "",
+        genre: subject[0],
         key: bookData?.key || "",
         imgUrl:
           `https://covers.openlibrary.org/b/olid/${bookData?.cover_edition_key}-M.jpg` ||

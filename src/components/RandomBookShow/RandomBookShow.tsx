@@ -37,6 +37,7 @@ const RandomBookShow = () => {
   }, [data])
 
   const handleOnClickSave = () => {
+    const subject: string[] = dataTitle?.docs[0]?.subject || [""]
     dispatch(
       addBook({
         title: dataTitle?.docs[0]?.title || "",
@@ -46,7 +47,7 @@ const RandomBookShow = () => {
         pages: dataTitle?.docs[0]?.number_of_pages_median || 0,
         first_publish_year: dataTitle?.docs[0]?.first_publish_year || 0,
         editions: dataTitle?.docs[0]?.edition_count || 0,
-        genre: dataTitle?.docs[0]?.subject[0] || "",
+        genre: subject[0],
         key: dataTitle?.docs[0]?.key || "",
         imgUrl:
           `https://covers.openlibrary.org/b/olid/${dataTitle?.docs[0]?.cover_edition_key}-M.jpg` ||
