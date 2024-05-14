@@ -14,6 +14,7 @@ const BookList: React.FC<BookProps> = ({ url, handleNext, handlePrev }) => {
   const { data, error, loading } = useFetch<BookTitleType>(url)
   const [bookData, setBookData] = useState<BookDocType | null>(null)
   const [showBookInfo, setShowBookInfo] = useState(false)
+
   return (
     <article className="book-list">
       {loading && <p>Loading...</p>}

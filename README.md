@@ -5,14 +5,28 @@ Scss and redux will be used.
 
 An app for searching after books and get information about the book.
 
+Itś possible to search for Authors too.
+
+Users can save books and authors in a list, favorite mark them and books read can have a personal note.
+
 [open library](https://openlibrary.org/developers) api will be used.
+
+## Url used
+
+https://openlibrary.org/search.json?title=${searchWord}&limit=10&offset=${offset}&type=work
+
+https://openlibrary.org${bookData?.key}.json
+
+https://openlibrary.org/search/authors.json?q=${searchWord}&limit=10&offset=${offset}
 
 ## Yarn
 
 To setup project.
 
 git clone
+
 yarn install
+
 yarn run dev
 
 ## React + TypeScript + Vite
