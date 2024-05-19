@@ -65,7 +65,7 @@ const AuthorSavedShow: React.FC<AuthorSavedShowProps> = ({
             setShowAuthorInfo(false)
           }}
         >
-          Remove book
+          Remove author
         </button>
         <button
           className={`button-favorite ${
